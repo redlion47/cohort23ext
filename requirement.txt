@@ -1,0 +1,9 @@
+#############my reguirement document############
+docopt == 0.6.2
+Flask == 0.12.2
+virtualenvwrapper
+pipenv
+nose
+airbnb
+pylint
+PyPI

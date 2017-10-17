@@ -1,0 +1,10 @@
+language: python
+python:
+	- "3.6"
+	-Flask
+
+install:
+	-pip install .
+	-pip install -r requirement.txt
+script:
+	-pytest
