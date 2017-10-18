@@ -6,12 +6,12 @@ def main():
 	return render_template('designs/UI/index.html')
 
 
-@app.route('/UserReg.html')
+@app.route('/showSignUp')
 def showSignUp():
 	return render_template('designs/UI/UserReg.html')
 
 #takes the user to the login page
-@app.route('/LoginPage.html')
+@app.route('/showLogin')
 def showLogin():
 	return render_template('designs/UI/LoginPage.html')
 
@@ -23,11 +23,32 @@ def signUp():
 	email = request.form['email']
 	pwd = request.form['password']
 	conpwd = request.form['conpassword']
+	
+	credentials= {username:pwd, email:pwd}
 
 	#validation of the data received
-	return username, email, pwd, conpwd
+	if pwd == conpwd:
+		return render_template('designs/UI/RecipeCategories.html' , uname = username)
+		pass
+	else:
+		return render_template('designs/UI/UserReg.html', errorMessage = "!!YOUR CONFIRMATION PASSWORD DOESN'T MATCH YOUR PASSWORD!!")
+
+#handles User logins
+@app.route('/userLogin', methods = ['POST'])	
+def userLogin():
+	#fetching login credentials
+	username = request.form['username']
+	pwd = request.form['password']
 
 
+	#test login details
+	credentials = {'redlion':'ericardo47'}
+
+	#validating the user
+	if credentials.get(username, None) == None or pwd != credentials[username]:
+		return render_template('designs/UI/LoginPage.html', errorMessage ="username or password not match")
+	else:
+		return render_template('designs/UI/RecipeCategories.html', uname = username)
 
 
 if __name__ == '__main__':
