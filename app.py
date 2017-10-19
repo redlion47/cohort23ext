@@ -75,6 +75,10 @@ def addRecipe():
 @app.route('/recipeAdded', methods = ['POST'])
 def addedRecipe():
 
+	recipe_name = str(request.form['recipeName'])
+	ingredients = str(request.form['recipeName'])
+	instructions = str(request.form['recipeName'])
+
 	category = list()
 	category.append(str(request.form['recipeName']))#adds the entered category to a list
 
