@@ -1,10 +1,35 @@
 language: python
-python: 
-	'3.6'
 
-install: pip install --user -r requirement.txt
+python:
+  - '3.6' 
+
+before_install:
+  - echo "START"
+
+install:
+  - pip install -r requirements.txt  
+
 script:
-    -pytest
-    -nosetests
+  - nosetest #python tests.py
 
-after_success:coveralls
+# blacklist  
+branches:
+  except:
+    - develop
+
+# whitelist   
+branches:
+  only:
+    - master
+
+deploy:
+  provider: heroku
+  api_key: 0156b56a-0452-474d-850f-6aadb13649ea
+  app:
+    master: yummyrecipeskenya
+
+
+on_success: 
+  - change
+  - coveralls
+on_failure: always
