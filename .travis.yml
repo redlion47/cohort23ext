@@ -10,7 +10,8 @@ install:
   - pip install -r requirements.txt  
 
 script:
-  - nosetest #python tests.py
+  -pytest
+  -nosetest #python tests.py
 
 # blacklist  
 branches:
