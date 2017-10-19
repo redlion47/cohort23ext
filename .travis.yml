@@ -6,9 +6,9 @@ install: pip install --user -r requirement.txt
 script:
     -pytest
     -nosetests
-deploy:
-	provider: pages
-	skip_cleanup: true
-	on:
-		branch: master
-after_success:coveralls
+deploy: 
+    provider: pages
+    skip_cleanup: true
+    on:
+        branch: master
+after_success: coveralls
