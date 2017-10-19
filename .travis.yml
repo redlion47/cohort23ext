@@ -2,9 +2,7 @@ language: python
 python: 
 	'3.6'
 
-install:
-    -pip install *
-    -pip install --user -r requirement.txt
+install: pip install --user -r requirement.txt
 script:
     -pytest
     -nosetests
