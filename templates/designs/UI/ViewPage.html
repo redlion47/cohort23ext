@@ -3,6 +3,14 @@
 	<head>
 		<title>ViewPage</title>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+    			$("#del").click(function(){
+       				 $("#lst").remove();
+    			});
+			});
+		</script>
 	</head>
 	<body style="color:blue; background-color: #b9b9b9;">
 
@@ -12,17 +20,17 @@
 
 			<ul>
 				<!--{% for key in result %}-->
-				<li style="color: black;">first recipe
+				<li style="color: black;" id="lst">first recipe
 
 					<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
-					<button class="btn btn-primary glyphicon glyphicon-remove" type ="button"></button>
+					<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
 
 				</li>
 				
 				<li>{{ result }}</li>
 				<li>{{ value }}</li>
 				<!--{% endfor %}-->
-				
+
 			</ul>
 			
 

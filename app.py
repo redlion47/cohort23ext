@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, json
 app = Flask(__name__)
 
+#start the home page
 @app.route("/")
 def main():
 	return render_template('designs/UI/index.html')
 
-
+#take the users to the registration page
 @app.route('/showSignUp')
 def showSignUp():
 	return render_template('designs/UI/UserReg.html')
@@ -23,7 +24,7 @@ def signUp():
 	email = request.form['email']
 	pwd = request.form['password']
 	conpwd = request.form['conpassword']
-	
+
 	credentials= {username:pwd, email:pwd}
 
 	#validation of the data received
@@ -50,6 +51,34 @@ def userLogin():
 	else:
 		return render_template('designs/UI/RecipeCategories.html', uname = username)
 
+#adding recipe category
+@app.route('/addCategory')
+def addCategory():
+	return render_template('designs/UI/addCategory.html')
+
+#adds categories to the site
+@app.route('/categoryAdded', methods = ['POST'])
+def addedCategory():
+
+	category = list()
+	category.append(str(request.form['categoryName']))#adds the entered category to a list
+
+	return render_template('designs/UI/RecipeCategories.html', result = category)
+
+#adding recipe to the list
+@app.route('/addRecipe')
+def addRecipe():
+	return render_template('designs/UI/addRecipe.html')
+
+
+#adds recipe to the site
+@app.route('/recipeAdded', methods = ['POST'])
+def addedRecipe():
+
+	category = list()
+	category.append(str(request.form['recipeName']))#adds the entered category to a list
+
+	return render_template('designs/UI/RecipeList.html', result = category)
 
 if __name__ == '__main__':
 	app.run()

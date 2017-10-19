@@ -1,0 +1,3 @@
+#testin my .gitignore
+
+TDDtrials/

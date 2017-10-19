@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang ="en">
 	<head>
-		
+
 		<title>My Recipe</title>
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+    			$("#del").click(function(){
+       				 $("#lst").remove();
+    			});
+			});
+		</script>
 
 	</head>
 
@@ -18,20 +26,32 @@
 
 				<ol type="1" >
 
-					<li>
+					<li id="lst">
 
 						<b style = "padding-right: 10%;">First Recipe in your list</b>
 
 						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
-						<button class="btn btn-primary glyphicon glyphicon-remove" onclick="alert('About to delete')"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
 
 					</li>
+
+					{% for key in result %}
+
+					<li id="lst">
+
+						<b style = "padding-right: 10%;">{{ key }}</b>
+
+						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+
+					</li>
+					{% endfor %}
 
 				</ol>
 
 			</b>
 
-			<button class="btn btn-primary" style = "padding-left: 10%; padding-right: 10%;" onclick="alert('Add more recipes')"><b>+ ADD RECIPE</b></button>
+			<button class="btn btn-primary" style = "padding-left: 10%; padding-right: 10%;" onclick="location.href='/addRecipe';"><b>+ ADD RECIPE</b></button>
 			
 		</div>
 	</body>
