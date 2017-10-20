@@ -1,14 +1,23 @@
 language: python
-python: 
-	'3.6'
 
-install: pip install --user -r requirement.txt
+python: 
+	-'3.6'
+
+install: 
+  -pip install --user -r requirements.txt
+  -pip install coveralls
+
 script:
-    -pytest
-    -nosetests
-deploy: 
-    provider: pages
-    skip_cleanup: true
-    on:
-        branch: master
+    -app.py
+
+deploy:
+  provider: heroku
+  api_key: 0156b56a-0452-474d-850f-6aadb13649ea
+  app:
+    master: master
+
 after_success: coveralls
+
+on_success: change
+
+on_failure: always

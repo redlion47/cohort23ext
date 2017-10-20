@@ -7,3 +7,4 @@ nose
 airbnb
 pylint
 PyPI
+coverage == 4.4.1
