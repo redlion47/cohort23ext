@@ -2,7 +2,6 @@ import os
 import unittest
 
 import app
-
 class LoginTest(unittest.TestCase):
 	"""docstring for LoginTest"""
 
@@ -11,7 +10,7 @@ class LoginTest(unittest.TestCase):
 		app.config['WTF_CSRF_ENABLED'] = False
 		app.config['DEBUG'] = False
 
-		self.app = app.main()
+		self.path = app.main()
 
 		pass
 
@@ -19,8 +18,8 @@ class LoginTest(unittest.TestCase):
 		pass
 
 	def test_home(self):
-		resp = self.app().get('/', follow_redirects = True)
-		self.assertEqual(resp.status_code, 200)
+		resp = self.path.get('/', follow_redirects = True)
+		self.assertEqual(resp.statu_code, 200)
 		pass
 	def test_login_method(self):
 		pass

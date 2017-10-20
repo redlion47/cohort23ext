@@ -76,8 +76,9 @@ def addRecipe():
 def addedRecipe():
 
 	recipe_name = str(request.form['recipeName'])
-	ingredients = str(request.form['recipeName'])
-	instructions = str(request.form['recipeName'])
+	ingredients = str(request.form['ingredients'])
+	instructions = str(request.form['instructions'])
+
 
 	category = list()
 	category.append(str(request.form['recipeName']))#adds the entered category to a list
@@ -85,4 +86,6 @@ def addedRecipe():
 	return render_template('designs/UI/RecipeList.html', result = category)
 
 if __name__ == '__main__':
-	app.run()
+     app.debug = True
+     port = int(os.environ.get("PORT", 5000))
+     app.run(host='0.0.0.0', port=port)

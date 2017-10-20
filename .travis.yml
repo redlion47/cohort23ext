@@ -8,7 +8,9 @@ install:
   -pip install coveralls
 
 script:
-    -app.py
+  -app.py
+  -pytest
+  -nosetest 
 
 deploy:
   provider: heroku
@@ -21,3 +23,4 @@ after_success: coveralls
 on_success: change
 
 on_failure: always
+
