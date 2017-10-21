@@ -10,7 +10,9 @@ install:
 script:
   -app.py
   -pytest
-  -nosetest 
+  -nosetest --exe -v
+  - nosetest --exe --with-coverage --cover-package=app
+  - coveralls
 
 deploy:
   provider: heroku
