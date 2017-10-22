@@ -3,13 +3,13 @@ language: python
 python: '3.6'
 
 install: 
-  -pip install -r requirements.txt
+  - pip install -r requirements.txt
   ##-pip install coveralls
 
 script:
-  -app.py
-  -pytest
-  -nosetest --exe -v
+  - app.py
+  - pytest
+  - nosetest --exe -v
   - nosetest --exe --with-coverage --cover-package=app
   - coveralls
 
