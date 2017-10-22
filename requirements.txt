@@ -33,4 +33,3 @@ virtualenv-clone==0.2.6
 virtualenvwrapper==4.8.2
 Werkzeug==0.12.2
 wrapt==1.10.11
-python
