@@ -7,7 +7,7 @@ install:
   ##-pip install coveralls
 
 script:
-  - app.py
+  - python app.py
   - pytest
   - nosetest --exe -v
   - nosetest --exe --with-coverage --cover-package=app
