@@ -29,7 +29,7 @@ def signUp():
 
 	#validation of the data received
 	if pwd == conpwd:
-		return render_template('designs/UI/RecipeCategories.html' , uname = username)
+		return render_template('designs/UI/ViewPage.html' , uname = username, result ={})
 		pass
 	else:
 		return render_template('designs/UI/UserReg.html', errorMessage = "!!YOUR CONFIRMATION PASSWORD DOESN'T MATCH YOUR PASSWORD!!")
@@ -46,13 +46,13 @@ def userLogin():
 	credentials = {'redlion':'ericardo47'}
 
 	#validating the user
-	if credentials.get(username, None) == None or pwd != credentials[username]:
+	if username== None and pwd == None:#credentials.get(username, None) == None or pwd != credentials[username]:
 		return render_template('designs/UI/LoginPage.html', errorMessage ="username or password not match")
 	else:
-		return render_template('designs/UI/RecipeCategories.html', uname = username)
+		return render_template('designs/UI/ViewPage.html', uname = username, result ={})
 
 #adding recipe category
-@app.route('/addCategory')
+"""@app.route('/addCategory')
 def addCategory():
 	return render_template('designs/UI/addCategory.html')
 
@@ -63,7 +63,7 @@ def addedCategory():
 	category = list()
 	category.append(str(request.form['categoryName']))#adds the entered category to a list
 
-	return render_template('designs/UI/RecipeCategories.html', result = category)
+	return render_template('designs/UI/RecipeCategories.html', result = category)"""
 
 #adding recipe to the list
 @app.route('/addRecipe')
@@ -80,10 +80,14 @@ def addedRecipe():
 	instructions = str(request.form['instructions'])
 
 
-	category = list()
-	category.append(str(request.form['recipeName']))#adds the entered category to a list
+	#category = list()
+	category = {}
+	category['recipeName'] = recipe_name
+	category['Ingredients'] = ingredients
+	category['Instructions'] = instructions
+	#category.append(str(request.form['recipeName']))#adds the entered category to a list
 
-	return render_template('designs/UI/RecipeList.html', result = category)
+	return render_template('designs/UI/ViewPage.html', result = category)
 
 if __name__ == '__main__':
      app.run()
