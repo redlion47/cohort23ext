@@ -1,7 +1,6 @@
 language: python
 
-python: 
-    -'3.6'
+python: '3.6'
 
 install: 
   -pip install --user -r requirements.txt
@@ -21,6 +20,6 @@ deploy:
     master: master
 
 after_success: 
-    -coveralls
-    - change
+  - coveralls
+  - change
 
