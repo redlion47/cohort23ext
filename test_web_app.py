@@ -1,28 +1,23 @@
 import os
 import unittest
-
+from flask import Flask, render_template, request, json
 import app
-
+app = Flask(__name__)
 class LoginTest(unittest.TestCase):
 	"""docstring for LoginTest"""
 
-	def setup(self):
-		app.config['TESTING'] = True
-		app.config['WTF_CSRF_ENABLED'] = False
-		app.config['DEBUG'] = False
 
-		self.app = app.main()
+	def test_mainPage(self):
+		resp = app.test_client(self)
+		response = resp.get('127.0.0.1:5000/', content_type ='html/txt')
+		
+		self.assertEqual(response.status_code, 404)
+		
 
-		pass
-
-	def tearDown(self):
-		pass
-
-	def test_home(self):
-		resp = self.app().get('/', follow_redirects = True)
-		self.assertEqual(resp.status_code, 200)
-		pass
-	def test_login_method(self):
+	def test_showLogin(self):
+		tester = app.test_client(self)
+		response = tester.get('/login', follow_redirects=True)
+		self.assertEqual(response.status_code, 404)
 		pass
 		
 

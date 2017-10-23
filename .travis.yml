@@ -1,16 +1,16 @@
+
 language: python
 
-python: 
-	-'3.6'
+python: '3.6.2'
 
 install: 
-  -pip install --user -r requirements.txt
-  -pip install coveralls
+  - pip install -r requirements.txt
+  - pip install coveralls
 
 script:
-  -app.py
-  -pytest
-  -nosetest --exe -v
+  - python test_web_app.py
+  - pytest
+  - nosetest --exe -v
   - nosetest --exe --with-coverage --cover-package=app
   - coveralls
 
@@ -20,9 +20,7 @@ deploy:
   app:
     master: master
 
-after_success: coveralls
-
-on_success: change
-
-on_failure: always
+after_success: 
+  - coveralls
+  - change
 

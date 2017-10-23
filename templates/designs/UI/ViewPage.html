@@ -15,24 +15,59 @@
 	<body style="color:blue; background-color: #b9b9b9;">
 
 		<h1 align = "center">YUMMY RECIPES</h1>
+		<p><b>WELCOME TO YUMMY {{uname}}</b></p>
 
 		<div align = "center" style = "padding-top:15%; display: block;">
+			<table class = "table table-bordered table-striped">
 
-			<ul>
-				<!--{% for key in result %}-->
-				<li style="color: black;" id="lst">first recipe
+				<thead>
+					<h2>THAT YUMMY MOMENT</h2>
+				</thead>
 
-					<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
-					<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+				<tr>
+					<th>
+						<b>RECIPE NAME</b>
+					</th>
 
-				</li>
+					<th>
+						<b>INGREDIENT</b>
+					</th>
+
+					<th>
+						<b>INSTRUCTIONS</b>
+					</th>
+					<th></th>
+
+				</tr>
+
+
+				<tr>
+					<td><ol><li>ugali madondo</li></ol></td>
+					<td><ol><li>flour beans</li></ol></td>
+					<td><ul><li>cook at high temperature</li></ul></td>
+					<td>
+						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+					</td>
+
+				</tr>
+				{% if results != {} %}
+
+				<tr>
+
+					<td><ol><li>{{ result['recipeName'] }}</li></ol></td>
+					<td><ol><li>{{result['Ingredients']}}</li></ol></td>
+					<td><ul><li>{{result['Instructions']}}</li></ul></td>
+					<td>
+						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+					</td>
+
+				</tr>
+				{%endif%}
+			</table>
+
 				
-				<li>{{ result }}</li>
-				<li>{{ value }}</li>
-				<!--{% endfor %}-->
-
-			</ul>
-			
 
 		</div>
 	</body>
