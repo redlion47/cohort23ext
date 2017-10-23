@@ -1,3 +1,6 @@
 #testin my .gitignore
 
 TDDtrials/
+FlaskApp/
+app/
+test/
