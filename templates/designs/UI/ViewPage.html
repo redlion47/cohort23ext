@@ -15,6 +15,7 @@
 	<body style="color:blue; background-color: #b9b9b9;">
 
 		<h1 align = "center">YUMMY RECIPES</h1>
+		<p><b>WELCOME TO YUMMY {{uname}}</b></p>
 
 		<p align = "left"><b>WELCOME TO YUMMY{{ uname}}</b></p>
 
@@ -27,7 +28,7 @@
 
 				<tr>
 					<th>
-						<b>NAME</b>
+						<b>RECIPE NAME</b>
 					</th>
 
 					<th>
@@ -37,33 +38,38 @@
 					<th>
 						<b>INSTRUCTIONS</b>
 					</th>
+					<th></th>
 
 				</tr>
 
-				
-				<ol><tr>
-					<td><li>chapati</li></td>
-					<td><ul><li>white flour</li></ul></td>
-					<td><ul><li>mix with water and fry</li></ul></td>
-					<td><button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
-				<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button></td>
 
-				</tr></ol>
-				{% if result != {} %}
-				
-				<ol><tr>
-					<td><li>{{ result['recipeName'] }}</li></td>
-					<td><ul><li>{{ result['Ingredients'] }}</li></ul></td>
-					<td><ul><li>{{ result['Instructions'] }}</li></ul></td>
-					<td><button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
-				<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button></td>
-				</tr></ol>
-				{% endif %}
+				<tr>
+					<td><ol><li>ugali madondo</li></ol></td>
+					<td><ol><li>flour beans</li></ol></td>
+					<td><ul><li>cook at high temperature</li></ul></td>
+					<td>
+						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+					</td>
+
+				</tr>
+				{% if results != {} %}
+
+				<tr>
+
+					<td><ol><li>{{ result['recipeName'] }}</li></ol></td>
+					<td><ol><li>{{result['Ingredients']}}</li></ol></td>
+					<td><ul><li>{{result['Instructions']}}</li></ul></td>
+					<td>
+						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+					</td>
+
+				</tr>
+				{%endif%}
 			</table>
 
-			
-			<p class=" btn btn-primary" ><a href="/addRecipe" style = "color: black">+ ADD</a></p>
-
+				
 		</div>
 	</body>
 </html>

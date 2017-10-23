@@ -1,13 +1,14 @@
+
 language: python
 
 python: '3.6.2'
 
 install: 
   - pip install -r requirements.txt
-  ##-pip install coveralls
+  - pip install coveralls
 
 script:
-  - python app.py
+  - python test_web_app.py
   - pytest
   - nosetest --exe -v
   - nosetest --exe --with-coverage --cover-package=app
