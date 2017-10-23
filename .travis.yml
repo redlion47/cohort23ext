@@ -8,10 +8,10 @@ install:
   - pip install coveralls
 
 script:
-  - python test_web_app.py
+  - python app.py
   - pytest
-  - nosetest --exe -v
-  - nosetest --exe --with-coverage --cover-package=app
+  - nosetests --exe -v
+  - nosetests --exe --with-coverage --cover-package=app
   - coveralls
 
 deploy:
