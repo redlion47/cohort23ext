@@ -30,7 +30,9 @@ def signUp():
 
 	#validation of the data received
 	if pwd == conpwd:
-		return render_template('designs/UI/ViewPage.html' , uname = username)
+
+		return render_template('designs/UI/ViewPage.html' , uname = username, result ={})
+
 		pass
 	else:
 		return render_template('designs/UI/UserReg.html', errorMessage = "!!YOUR CONFIRMATION PASSWORD DOESN'T MATCH YOUR PASSWORD!!")
@@ -47,6 +49,7 @@ def userLogin():
 	credentials = {'redlion':'ericardo47'}
 
 	#validating the user
+
 	if username == "" or pwd =="": #credentials.get(username, None) == None or pwd != credentials[username]:
 		return render_template('designs/UI/LoginPage.html', errorMessage ="username or password not match")
 	else:
@@ -54,6 +57,7 @@ def userLogin():
 
 """#adding recipe category
 @app.route('/addCategory')
+
 def addCategory():
 	return render_template('designs/UI/addCategory.html')
 
@@ -83,6 +87,7 @@ def addedRecipe():
 
 	category = {}
 	category['recipeName']= recipe_name
+
 	category['Ingredients'] = ingredients
 	category['Instructions'] = instructions
 	#category.append(str(request.form['recipeName']))#adds the entered category to a list
@@ -90,6 +95,8 @@ def addedRecipe():
 	return render_template('designs/UI/ViewPage.html', result = category)
 
 if __name__ == '__main__':
+
      app.debug = True
-     #port = int(os.environ.get("PORT", 5000))
-     app.run()#host='0.0.0.0', port=port)
+     
+     app.run()
+
