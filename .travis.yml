@@ -18,7 +18,7 @@ deploy:
   provider: heroku
   api_key: 0156b56a-0452-474d-850f-6aadb13649ea
   app:
-    master: master
+    master: yummyrecipeskenya
 
 after_success: 
   - coveralls
