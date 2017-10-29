@@ -1,7 +1,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/redlion47/cohort23ext/badge.svg?branch=master)](https://coveralls.io/github/redlion47/cohort23ext?branch=master)
 
 [![Build Status](https://travis-ci.org/redlion47/cohort23ext.svg?branch=develop)](https://travis-ci.org/redlion47/cohort23ext)
-
+https://travis-ci.org/redlion47/cohort23ext.svg?branch=master
 
 Andela challenge project
 creating a yummy recipe site
