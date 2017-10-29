@@ -4,4 +4,3 @@ TDDtrials/
 FlaskApp/
 app/
 tests/
-instance/
