@@ -22,5 +22,4 @@ deploy:
 
 after_success: 
   - coveralls
-  - change
 
