@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/redlion47/cohort23ext/badge.svg?branch=master)](https://coveralls.io/github/redlion47/cohort23ext?branch=master)
+
 https://pypip.in/v/python-coveralls/badge.png https://pypip.in/d/python-coveralls/badge.png
 
 
