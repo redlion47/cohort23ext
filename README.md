@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/redlion47/cohort23ext/badge.svg?branch=master)](https://coveralls.io/github/redlion47/cohort23ext?branch=master)  [![Maintainability](https://api.codeclimate.com/v1/badges/eecfb8336bf375b18b92/maintainability)](https://codeclimate.com/github/redlion47/cohort23ext/maintainability) [![Build Status](https://travis-ci.org/redlion47/cohort23ext.svg?branch=master)](https://travis-ci.org/redlion47/cohort23ext)
+[![Coverage Status](https://coveralls.io/repos/github/redlion47/cohort23ext/badge.svg?branch=master)](https://coveralls.io/github/redlion47/cohort23ext?branch=master)  [![Maintainability](https://api.codeclimate.com/v1/badges/eecfb8336bf375b18b92/maintainability)](https://codeclimate.com/github/redlion47/cohort23ext/maintainability) [![Build Status](https://travis-ci.org/redlion47/cohort23ext.svg?branch=master)](https://travis-ci.org/redlion47/cohort23ext) <a href="https://codeclimate.com/github/redlion47/cohort23ext/test_coverage"><img src="https://api.codeclimate.com/v1/badges/eecfb8336bf375b18b92/test_coverage" /></a>
 
 Andela challenge project
 creating a yummy recipe site
