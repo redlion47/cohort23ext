@@ -4,37 +4,37 @@
 
 		<title>LoginPage</title>
 
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	</head>
-	<body style="color:blue; background-color: #b9b9b9;">
+	<body  class="body-color" style = "background-image:url('images/set-table.jpg');">
 
-		<h1 align = "center" style="padding-right:10%">YUMMY RECIPES</h1>
+		<h1 align = "center" style="padding-right:10%"><i>YUMMY RECIPES</i></h1>
 
 		<div align = "center" class = "container" style = "padding-top:10%; display: block;">
 
 
-			<form class = "form-signin" style = "padding-right:15%;" action="/userLogin" method = "POST">
+			<form class = "form-signin form-group row form-layout" style = "padding-right:15%; " action="/userLogin" method = "POST">
 
 				<b style="color:red;">{{ errorMessage }}</b><br/>
 
 
-				<label>Username: </label>
-				<input type = "text" name = "username" class= "btn-lg" ><br />
+				<label class = "col-form-label">Username: </label>
+				<input type = "text" name = "username" class= "btn-lg " ><br />
 
-				<label>Password: </label>
-				<input type = "password" id= "inputPassword" name = "password" class= "btn-lg" required><br />
+				<label class = "col-form-label">Password: </label>
+				<input type = "password" id= "inputPassword" name = "password" class= "btn-lg " required><br />
 
 				<!--button class= "btn-lg btn-primary " >SUBMIT</button-->
 
 
-				<div style = "padding-top:5%; padding-left:10%; ">
+				<div style = "padding-top:5%; padding-left:10%; " class="offset-sm-2 ">
 
 					<button class= "btn-lg btn-primary " >SUBMIT</button>
 
+					<p style="color:black" class="">Not Registered with us?<a href="/showSignUp">REGISTER HERE</a></p>
 				</div>
-				
-				<p style="color:black">Not Registered with us?<a href="/showSignUp">REGISTER HERE</a></p>
 			</form>
 		</div>
 	</body>

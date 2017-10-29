@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, json
 import os
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder='static')
 
 #start the home page
 @app.route('/')

@@ -2,40 +2,33 @@
 <html lang ="en">
 	<head>
 		<title>ViewPage</title>
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script>
-			$(document).ready(function(){
-    			$("#del").click(function(){
-       				 $("#lst").remove();
-    			});
-			});
-		</script>
+		
 	</head>
-	<body style="color:blue; background-color: #b9b9b9;">
+	<body class="body-color" style = "background-image:url('images/set-table.jpg');">
 
 		<h1 align = "center">YUMMY RECIPES</h1>
-		<p><b>WELCOME TO YUMMY {{uname}}</b></p>
 
-		<p align = "left"><b>WELCOME TO YUMMY{{ uname}}</b></p>
+		<p align = "left"><b>WELCOME TO YUMMY {{ uname}}</b></p>
 
 		<div align = "center" style = "padding-top:15%; display: block;">
-			<table class = "table table-bordered table-striped">
+			<table style= "width: 80%" class = "table table-bordered table-striped table-dark table-sm table-hover">
 
-				<thead>
+				<thead >
 					<h2>THAT YUMMY MOMENT</h2>
 				</thead>
 
-				<tr>
-					<th>
+				<tr >
+					<th scope="col">
 						<b>RECIPE NAME</b>
 					</th>
 
-					<th>
+					<th scope="col">
 						<b>INGREDIENT</b>
 					</th>
 
-					<th>
+					<th scope="col">
 						<b>INSTRUCTIONS</b>
 					</th>
 					<th></th>
@@ -45,7 +38,7 @@
 
 				<tr>
 					<td><ol><li>ugali madondo</li></ol></td>
-					<td><ol><li>flour beans</li></ol></td>
+					<td><ul><li>flour beans</li></ul></td>
 					<td><ul><li>cook at high temperature</li></ul></td>
 					<td>
 						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
@@ -58,7 +51,7 @@
 				<tr>
 
 					<td><ol><li>{{ result['recipeName'] }}</li></ol></td>
-					<td><ol><li>{{result['Ingredients']}}</li></ol></td>
+					<td><ul><li>{{result['Ingredients']}}</li></ul></td>
 					<td><ul><li>{{result['Instructions']}}</li></ul></td>
 					<td>
 						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>

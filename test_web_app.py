@@ -1,25 +1,36 @@
 import os
 import unittest
-from flask import Flask, render_template, request, json
-import app
-app = Flask(__name__)
+from app import app
+
+
 class LoginTest(unittest.TestCase):
 	"""docstring for LoginTest"""
 
 
 	def test_mainPage(self):
 		resp = app.test_client(self)
-		response = resp.get('127.0.0.1:5000/', content_type ='html/txt')
+		response = resp.get('/', content_type ='html/txt')
 		
-		self.assertEqual(response.status_code, 404)
+		self.assertEqual(response.status_code, 200)
 		
 
 	def test_showLogin(self):
-		tester = app.test_client(self)
-		response = tester.get('/login', follow_redirects=True)
-		self.assertEqual(response.status_code, 404)
+		resp = app.test_client(self)
+		response = resp.get('/showLogin', follow_redirects=True)
+		self.assertEqual(response.status_code, 200)
 		pass
 		
+	def test_login(self):
+		resp = app.test_client(self)
+		response = resp.get('/showLogin', data=dict(username='admin', password='password'), follow_redirects=True)
+		self.assertIn(b'YUMMY RECIPES', response.data)
+
+
+	def test_signUp(self):
+		resp = app.test_client(self)
+		response = resp.post('/UserReg', data=dict(username='admin', password='password', email ='red@admin.ng', conpassword='password' ), follow_redirects=True)
+		self.assertIn(b'WELCOME TO YUMMY admin', response.data)
+		pass
 
 
 

@@ -1,31 +1,69 @@
 <!DOCTYPE html>
 <html lang ="en">
 	<head>
+
 		<title>UserReg</title>
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
 	</head>
-	<body style="color:blue; background-color: #b9b9b9;">
-		<h1 align = "center">YUMMY RECIPES</h1>
-		<div class = "container" align = "center" style = "padding-top:10%; display: block;">
+	<body  class="body-color" style = "background-image:url('images/set-table.jpg');">
+
+		<h1 align = "center" style="padding-right:10%"><i>YUMMY RECIPES</i></h1>
+
+		<div class = "container" align = "center" style = "padding-top:5%; display: block;">
 
 			
-			<form class = "form-signin btn-lg" style = " display: block;" action = "/UserReg" method = "POST">
+			<form class = "form-signin form-group row btn-lg form-layout" style = "display: block;" action = "/UserReg" method = "POST">
 
-				<b style="color:red;">{{ errorMessage }}</b>
+				<b style="color:red;">{{ errorMessage }}</b><br />
 
-				<label >Username:</label> 
-				<input type = "text" class= "btn-lg"  name = "username"style ="padding-right: 30%;"><br />
+				<div class = " form-group row" style= "display: inline;">
 
-				<label style ="padding-right: 6%;">Email:</label> 
-				<input type = "email" id= "inputEmail" class= "btn-lg"  name = "email" style ="padding-right: 30%;"><br />
+					<label class = "col-2 col-form-label">Username:</label> 
 
-				<label>Password:</label> 
-				<input type = "password" id= "inputPassword" name = "password" class= "btn-lg" required style ="padding-right: 30%;"><br />
+					<div class ="col-10">
 
-				<label style ="padding-left: 10%;">Confirm Password: </label>
-				<input type = "password" id= "inputPassword" name = "conpassword" class= "btn-lg" required style ="padding-right: 30%;"><br />
+						<input type = "text" class= " btn-lg"  name = "username">
+
+					</div>
+				</div><br />
+				<div class = " form-group row">
+
+					<label class = "col-2 col-form-label">Email:</label> 
+
+					<div class ="col-10">
+
+						<input type = "email" id= "inputEmail" class= "btn-lg"  name = "email" >
+
+					</div>
+
+				</div><br />
+
+				<div class = " form-group row">
+
+					<label class = "col-2 col-form-label">Password:</label>
+
+					<div class ="col-10">
+
+						<input type = "password" id= "inputPassword" name = "password" class= " btn-lg" required >
+
+					</div>
+				</div><br />
+
+				<div class = " form-group row">
+
+					<label class = "col-2 col-form-label" >Confirm Password: </label>
+
+					<div class ="col-10">
+
+						<input type = "password" id= "inputPassword" name = "conpassword" class= "btn-lg" required>
+
+					</div>
+				</div><br />
 
 				<button class="btn-lg btn-primary">SUBMIT</button>
+				
 			</form>
 
 		</div>

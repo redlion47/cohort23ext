@@ -3,4 +3,4 @@
 TDDtrials/
 FlaskApp/
 app/
-test/
+tests/
