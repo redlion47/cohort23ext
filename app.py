@@ -1,59 +1,75 @@
-from flask import Flask, render_template, request, json
-import os
-app = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder='static')
+"""This file is ensuring the
+UIs interract seamlessly"""
+from flask import Flask, render_template, request, redirect, url_for
+
+App = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder='static')
 
 #start the home page
-@app.route('/')
-def mainPage():
-	return render_template('designs/UI/index.html')
+@App.route('/')
+def main_Page():
+    """when the base url is queried
+    this fumction takes you to the
+    index.html"""
+    return render_template('designs/UI/index.html')
 
 #take the users to the registration page
-@app.route('/showSignUp')
-def showSignUp():
-	return render_template('designs/UI/UserReg.html')
+@App.route('/showSignUp')
+def show_Sign_Up():
+    """This takes you to the
+    signup page"""
+
+    return render_template('designs/UI/UserReg.html')
 
 #takes the user to the login page
-@app.route('/showLogin')
-def showLogin():
-	return render_template('designs/UI/LoginPage.html')
+@App.route('/showLogin')
+def show_Login():
+    """This will take you to the login
+    page"""
+    return render_template('designs/UI/LoginPage.html')
 
 #a method to enable the use to signup
-@app.route('/UserReg' , methods =['POST'])
-def signUp():
-	#code to get the input entered by the user
-	username = request.form['username']
-	email = request.form['email']
-	pwd = request.form['password']
-	conpwd = request.form['conpassword']
+@App.route('/UserReg', methods=['POST'])
+def sign_Up():
+    """This controls how the signup
+    requirements are executed"""
+    #code to get the input entered by the user
+    username = request.form['username']
+    #email = request.form['email']
+    pwd = request.form['password']
+    conpwd = request.form['conpassword']
 
-	credentials= {username:pwd, email:pwd}
+    #credentials = {username:pwd, email:pwd}
 
-	#validation of the data received
-	if pwd == conpwd:
+    #validation of the data received
+    if pwd == conpwd:
 
-		return render_template('designs/UI/ViewPage.html' , uname = username, result ={})
+        return render_template('designs/UI/ViewPage.html', uname=username, result={})
 
-		pass
-	else:
-		return render_template('designs/UI/UserReg.html', errorMessage = "!!YOUR CONFIRMATION PASSWORD DOESN'T MATCH YOUR PASSWORD!!")
+    else:
+        return render_template('designs/UI/UserReg.html', errorMessage="!!YOUR CONFIRMATION \
+        	PASSWORD DOESN'T MATCH YOUR PASSWORD!!")
 
 #handles User logins
-@app.route('/userLogin', methods = ['POST'])	
-def userLogin():
-	#fetching login credentials
-	username = request.form['username']
-	pwd = request.form['password']
+@App.route('/userLogin', methods=['POST'])
+def user_Login():
+    """This controls the requirements
+    for login in"""
+    #fetching login credentials
+    username = request.form['username']
+    pwd = request.form['password']
 
 
-	#test login details
-	credentials = {'redlion':'ericardo47'}
+    #test login details
+    #credentials = {'redlion':'ericardo47'}
 
-	#validating the user
+    #validating the user
 
-	if username == "" or pwd =="": #credentials.get(username, None) == None or pwd != credentials[username]:
-		return render_template('designs/UI/LoginPage.html', errorMessage ="username or password not match")
-	else:
-		return render_template('designs/UI/ViewPage.html', uname = username)
+    if username == "" or pwd == "":
+    #credentials.get(username, None) == None or pwd != credentials[username]:
+        return render_template('designs/UI/LoginPage.html', errorMessage="username \
+        	or password not match")
+    else:
+        return render_template('designs/UI/ViewPage.html', uname=username)
 
 """#adding recipe category
 @app.route('/addCategory')
@@ -71,32 +87,36 @@ def addedCategory():
 	return render_template('designs/UI/RecipeCategories.html', result = category)"""
 
 #adding recipe to the list
-@app.route('/addRecipe')
-def addRecipe():
-	return render_template('designs/UI/addRecipe.html')
+@App.route('/addRecipe')
+def add_Recipe():
+    """This will take you to the
+    page for adding recipes"""
+    return render_template('designs/UI/addRecipe.html')
 
 
 #adds recipe to the site
-@app.route('/recipeAdded', methods = ['POST'])
-def addedRecipe():
+@App.route('/recipeAdded', methods=['POST'])
+def added_Recipe():
+    """This function anables a
+    controlled adding of recipes"""
 
-	recipe_name = str(request.form['recipeName'])
-	ingredients = str(request.form['ingredients'])
-	instructions = str(request.form['instructions'])
+    recipe_name = str(request.form['recipeName'])
+    ingredients = str(request.form['ingredients'])
+    instructions = str(request.form['instructions'])
 
 
-	category = {}
-	category['recipeName']= recipe_name
+    category = {}
+    
+    category['recipeName'] = recipe_name
 
-	category['Ingredients'] = ingredients
-	category['Instructions'] = instructions
-	#category.append(str(request.form['recipeName']))#adds the entered category to a list
+    category['Ingredients'] = ingredients
+    category['Instructions'] = instructions
+    #category.append(str(request.form['recipeName']))#adds the entered category to a list
 
-	return render_template('designs/UI/ViewPage.html', result = category)
+    return render_template('designs/UI/ViewPage.html', result=category)
 
 if __name__ == '__main__':
 
-     app.debug = True
-     
-     app.run()
-
+    App.debug = True
+    App.run()
+    
